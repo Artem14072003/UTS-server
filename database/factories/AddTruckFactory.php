@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Image>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AddTruck>
  */
-class ImageFactory extends Factory
+class AddTruckFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,8 @@ class ImageFactory extends Factory
     {
         return [
             'truck_id' => $this->state('truck_id'),
-            'name' => $this->state('name'),
-            'image' => $this->state('image'),
+            'title' => $this->state('title'),
+            'value' => $this->state('value'),
         ];
     }
 }

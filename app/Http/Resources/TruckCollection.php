@@ -54,6 +54,7 @@ class TruckCollection extends ResourceCollection
             'similar' => $this->similarTrucks->map(function ($card) {
                 return [
                     'id' => $card->id,
+                    'image' => 'http://localhost:8000' . Storage::url($card->image),
                     'title' => $card->title,
                     'price' => $card->price,
                     'model' => $card->model

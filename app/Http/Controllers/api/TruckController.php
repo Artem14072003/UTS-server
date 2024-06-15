@@ -71,7 +71,7 @@ class TruckController extends Controller
                 file_put_contents($tmpFile, $data);
 
                 $uploadedFile = new UploadedFile($tmpFile, 'image.png', null, null, true);
-                $path = $uploadedFile->store('public');
+                $path = $uploadedFile->store('public/trucks');
                 Image::create([
                     'truck_id' => $trucks->id,
                     'name' => $trucks->title,
@@ -137,10 +137,8 @@ class TruckController extends Controller
                 })
                 ->select('trucks.*', 'images.image')
                 ->where('trucks.id', '!=', $truck[0]->id)
-                ->where('engine_power', '=', $truck[0]->engine_power)
-                ->where('transmission', '=', $truck[0]->transmission)
-                ->where('weight', '=', $truck[0]->weight)
-                ->where('load_capacity', '=', $truck[0]->load_capacity)
+                ->where('model', '=', $truck[0]->model)
+                ->where('price', '<=', $truck[0]->price)
                 ->take(3)
                 ->get();
 
@@ -188,7 +186,7 @@ class TruckController extends Controller
                 file_put_contents($tmpFile, $data);
 
                 $uploadedFile = new UploadedFile($tmpFile, 'image.png', null, null, true);
-                $path = $uploadedFile->store('public');
+                $path = $uploadedFile->store('public/trucks');
 
                 Image::create([
                     'truck_id' => $id,
